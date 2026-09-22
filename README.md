@@ -91,7 +91,7 @@ source and compares it with what is committed here:
 
 ```bash
 git clone https://github.com/open-coder-ai/chock-devin-plugins dist
-git clone --branch v0.7.0 https://github.com/open-coder-ai/chock framework
+git clone --branch v0.9.3 https://github.com/open-coder-ai/chock framework
 git clone https://github.com/open-coder-ai/chock-catalog catalog
 pip install ./framework
 chock plugin build --repo catalog --policies-dir base --format devin --out-dir dist
@@ -100,7 +100,7 @@ git -C dist diff --exit-code && git -C dist status --porcelain
 ```
 
 Silence from both `git` commands means this repository is byte-identical to a fresh build
-from the catalog. `--branch v0.7.0` is the framework release this tree was published from.
+from the catalog. `--branch v0.9.3` is the first framework release that carries the Devin format; the release a published tree was built with is recorded in its Publish commit message.
 `chock-market.lock` records a sha256 per published plugin directory, so one package can be
 checked without rebuilding the rest.
 
@@ -112,7 +112,7 @@ SHA. The tag names the release; the SHA is what holds the reviewed bytes still.
 | You want to | Go to |
 | :--- | :--- |
 | Fix or add a policy | [chock-catalog](https://github.com/open-coder-ai/chock-catalog/blob/main/CONTRIBUTING.md) — it reaches every client from there, including this one |
-| Report that a guard did or did not block on your Devin version | an issue on [chock](https://github.com/open-coder-ai/chock/issues/new/choose), which records the witnessed-blocking claims these packages carry; "it fails open where you say it fails closed" is the most useful result you can send |
+| Report that a guard did or did not block on your Devin version | an issue on [chock](https://github.com/open-coder-ai/chock/issues/new/choose), which is where a witnessed block or fail-open on a real Devin install gets recorded; no such run exists for these packages yet, so yours would be the first |
 | Report a bug in how packages are generated | [chock](https://github.com/open-coder-ai/chock/issues/new/choose), where the emitter lives |
 | Fix this README | here — it is the one hand-written file in the repository |
 
