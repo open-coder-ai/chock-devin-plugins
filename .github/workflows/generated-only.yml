@@ -1,0 +1,85 @@
+name: Generated-only
+
+# This repository is compiled output. The guarantee it offers users is that its contents
+# are exactly what the catalog published -- so the check is not a lint, it is the security
+# argument: regenerate from the pinned sources and fail on any difference. A hand edit, a
+# tampered guard script, or a manually added plugin all surface here as a diff.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this distribution repo
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # v5.0.0
+        with:
+          persist-credentials: false
+          path: dist
+
+      # The catalog is checked out first because it names the framework. `.framework-ref`
+      # is the emitter version this catalog's published output is defined against, so the
+      # only build that can prove this tree came from the catalog is a build with that
+      # framework. Checking out `main` here instead -- which is what this did -- compares a
+      # fixed tree against a moving emitter: the next merge that changes emitter output
+      # turns this check red on a tree nobody touched, while `publish` keeps building from
+      # a pinned ref. Deriving both from one file is what keeps verify and publish honest.
+      - name: Check out the catalog
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # v5.0.0
+        with:
+          persist-credentials: false
+          repository: open-coder-ai/chock-catalog
+          path: catalog
+
+      - name: Read the framework ref the catalog declares
+        id: framework
+        working-directory: catalog
+        run: |
+          if [ ! -f .framework-ref ]; then
+            echo "::error::chock-catalog has no .framework-ref, so there is no declared framework to verify this tree against."
+            exit 1
+          fi
+          ref="$(tr -d '[:space:]' < .framework-ref)"
+          if [ -z "$ref" ]; then
+            echo "::error::chock-catalog/.framework-ref is empty, so there is no declared framework to verify this tree against."
+            exit 1
+          fi
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+          echo "Verifying against framework $ref, from chock-catalog/.framework-ref."
+
+      - name: Check out the framework at the ref the catalog declares
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # v5.0.0
+        with:
+          persist-credentials: false
+          repository: open-coder-ai/chock
+          ref: ${{ steps.framework.outputs.ref }}
+          path: framework
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5
+        with:
+          python-version: '3.12'
+
+      - name: Install the framework from source
+        run: pip install ./framework
+
+      - name: Verify the lockfile and index match the published tree
+        working-directory: dist
+        run: chock marketplace build --dist . --check --tree devin --name chock-devin --url https://github.com/open-coder-ai/chock-devin-plugins
+
+      - name: Regenerate from the catalog and diff
+        run: |
+          chock plugin build --repo catalog --policies-dir base --format devin --out-dir dist
+          chock marketplace build --dist dist --tree devin --name chock-devin --url https://github.com/open-coder-ai/chock-devin-plugins
+          cd dist
+          if ! git diff --exit-code; then
+            echo "::error::This repository is generated. Regenerating from the catalog produced a different tree, so something here was not published by the catalog. Open a pull request against open-coder-ai/chock-catalog instead."
+            exit 1
+          fi
+          echo "Tree matches a fresh build from the catalog."
