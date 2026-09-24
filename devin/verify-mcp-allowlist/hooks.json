@@ -1,0 +1,13 @@
+{
+  "PreToolUse": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "python3 \"$DEVIN_PLUGIN_ROOT/scripts/devin.py\" --guard \"$DEVIN_PLUGIN_ROOT/scripts/verify-mcp-allowlist.sh\"",
+          "timeout": 30
+        }
+      ]
+    }
+  ]
+}

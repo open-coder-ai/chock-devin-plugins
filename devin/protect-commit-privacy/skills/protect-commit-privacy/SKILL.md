@@ -1,0 +1,19 @@
+---
+name: protect-commit-privacy
+description: "Keep the development conversation out of git history. Agent-authored commits narrate by default -- who asked for what, which discussion decided it, what the plan was -- and on a public repo that narration is published forever. The guard refuses git commit commands whose message (inline -m/--message or the file behind -F/--file) contains process-leak markers; the rule tells the agent to describe the change, not the conversation, and to propose sensitive messages to the human before committing. A commit or gh pr create|edit wrapped in sh -c/bash -c (hiding it inside one opaque argv token) falls back to scanning the raw command text, scoped to argv[0] actually being a shell interpreter so a command that merely echoes the pattern as documentation still passes. Best-effort: markers are a narrow deny-list, and a message the human explicitly approves can say anything -- edit the marker list in the guard, the content is yours."
+metadata:
+  chock.artifact: rule
+  chock.enforcement: advise
+  chock.hooks: hooks.json
+---
+
+# Protect Commit Privacy
+
+Keep the development conversation out of git history. Agent-authored commits narrate by default -- who asked for what, which discussion decided it, what the plan was -- and on a public repo that narration is published forever. The guard refuses git commit commands whose message (inline -m/--message or the file behind -F/--file) contains process-leak markers; the rule tells the agent to describe the change, not the conversation, and to propose sensitive messages to the human before committing. A commit or gh pr create|edit wrapped in sh -c/bash -c (hiding it inside one opaque argv token) falls back to scanning the raw command text, scoped to argv[0] actually being a shell interpreter so a command that merely echoes the pattern as documentation still passes. Best-effort: markers are a narrow deny-list, and a message the human explicitly approves can say anything -- edit the marker list in the guard, the content is yours.
+
+```
+commit_message|pr_description: describe(change); never(narrate: conversation|plan|who_asked|user_quotes|session_refs|internal_doc_paths)
+if(sensitive_context): propose_message_to_human; await(approval) before(commit)  # history is published forever
+```
+
+This policy ships a PreToolUse hook in this plugin's hooks.json, best-effort in Devin: fail-open by the vendor's own design, subject to the fail conditions stated in the plugin description. Repo-wide git-hook and CI coverage still needs `chock sync`. See https://github.com/open-coder-ai/chock

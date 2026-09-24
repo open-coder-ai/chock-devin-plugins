@@ -1,0 +1,32 @@
+{
+  "lockfile_version": 1,
+  "plugins": {
+    "devin/agent-discipline": "a2d318c89082b74aaecbe428bce5612a11b13d0e6806f844f5a12b079d3409d0",
+    "devin/block-curl-pipe-sh": "e218336cbf048463a5618ed59244eb473f52b5bbcc806ae8bdac671f01269142",
+    "devin/block-destructive-commands": "52f83512e181657bb41d3729629999a5e2ba69eef2e65b14ff176d5466a98dcd",
+    "devin/block-invisible-unicode": "b7bb229152e4e47fd967d4604897fc497799f23d96f0c370b2a657bde5872043",
+    "devin/block-no-verify": "77bd9e8fc89080af736592d9a43aed6896b2112389f977dfdbbf92d87b9b8bd6",
+    "devin/block-unapproved-egress": "e898e663ca9c12fdda1025743271f22c119b9ae7e06bbd444ea54746c02f08e9",
+    "devin/block-wildcard-agent-permissions": "e54cb933e215633c4e91489ad98595a633125742711da3fe1faaa60c5e425309",
+    "devin/chock-mise": "2d94340c37d36a6c2e2347a31c4998380bcca72a5bce7f41203389f330ebbaa4",
+    "devin/code-safety": "1614f7c268736bd01c3a743432b40632d807616095b2d8672892dbb2a44ec931",
+    "devin/context-hygiene": "484b83300706fb1ad3b3846c972d07c8cb83e0d5e28018b47dda8ac21c36bb49",
+    "devin/firecrawl-fallback-only": "4486443fe41407a31c140613745ddff184478e9d21d6b719d76ec130189418eb",
+    "devin/git-safety": "14940829b68414c8ecf88ceb0ee64eaaa0c27c4b06f27756b0cecbf2f1fc8793",
+    "devin/injection-defense": "c67cbc337e6c653fceb22cac125bf949ca4e1e92a2a053a773191189d206bf1d",
+    "devin/java-security": "eb71089e0cfb05dea6a42756ff48f347bec780fb9611e94461d103b3ca3f7ddf",
+    "devin/memory-discipline": "7269443da7486fbd1de660b2bc5ac0f01f445f5ac9b15fdeceeb93f63c369126",
+    "devin/no-a11y-regression": "a8d09d6e7fff8022026a930fd8bbe3f64a2115f17949bc4e24749c6ad574c5ae",
+    "devin/pin-github-actions": "275c4d50d6a5a0106d1db5a19f63467d9160a6a08f4334831e8746de24ce567e",
+    "devin/protect-agent-config": "462d4dd28b0640f629eb4b15665541cd4ca55ba8fc0b87f9ff265388590efe15",
+    "devin/protect-ci-workflows": "c59699f233e6b802636504686d2ede44cbfc8f2958a51a3eb8f345268c6a0f1a",
+    "devin/protect-commit-privacy": "2332dea19a2042349945ce2800477b97c01ca88a20a7e81d27d1ece7fb0ca8e4",
+    "devin/protect-main-branch": "1ea587d3f4373d26358401f77f250dbbed7f96328134f8741e24d4cf8938686f",
+    "devin/rtk-dangerous-actions-blocker": "38c590e3bed2771c59d710e02dcccc303d590f0ed324b0209065609ac5ed4656",
+    "devin/scan-secrets": "18ac6d02ed5b94a5c21c239d7157d396e7f61ce0446ffeda777b270b2fb2156a",
+    "devin/token-efficiency": "a3d9fdf52e3de845920e02e9a0bb51cece55ac3996eb912a65ff18bf8561cadd",
+    "devin/verify-dependency-exists": "88f1a1d7590ed22ea267ebd574e3969828a585b84e95125e31b5a4cc99126ae6",
+    "devin/verify-mcp-allowlist": "2c1ecf6f17b3667a8977ef99f30c6c817acc9227826b96c8beaf5a69ed5209f4",
+    "docs/assets": "dea5c6c7fc033489db5383a946de9b95568648ff7d6840612d664727f1184759"
+  }
+}

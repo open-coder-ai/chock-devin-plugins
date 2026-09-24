@@ -1,0 +1,13 @@
+{
+  "Stop": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "python3 \"$DEVIN_PLUGIN_ROOT/scripts/devin.py\" --gate \"$DEVIN_PLUGIN_ROOT/scripts/gate.json\"",
+          "timeout": 30
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+---
+name: verify-mcp-allowlist
+description: "Gate MCP server configuration as protected content. A shell write to .mcp.json is refused unless every mcpServers entry on the line matches a name+source pair on the allowlist -- an unlisted name blocks, and an allowed name whose command/args/url changed blocks too (catches a server renamed to an allowed name but pointed elsewhere). The allowlist ships inside this guard's own script, protected like every policy's implementations/ source -- edit only with 'chock: approved-config-change'. Claude Code's .mcp.json only. Tool-time (Bash) only, best-effort: PreToolUse fails open on a crash, a file-write tool bypasses this guard, a write with no visible content fails closed. No commit-time gate. A write signal is scoped to its own clause of the command line, so a writer or redirect elsewhere -- or stderr merely suppressed -- cannot condemn a plain read of .mcp.json. Matching and path checks are otherwise exact-string and substring-coarse. No pragma for .mcp.json."
+metadata:
+  chock.artifact: rule
+  chock.enforcement: advise
+  chock.hooks: hooks.json
+---
+
+# Verify MCP Allowlist
+
+Gate MCP server configuration as protected content. A shell write to .mcp.json is refused unless every mcpServers entry on the line matches a name+source pair on the allowlist -- an unlisted name blocks, and an allowed name whose command/args/url changed blocks too (catches a server renamed to an allowed name but pointed elsewhere). The allowlist ships inside this guard's own script, protected like every policy's implementations/ source -- edit only with 'chock: approved-config-change'. Claude Code's .mcp.json only. Tool-time (Bash) only, best-effort: PreToolUse fails open on a crash, a file-write tool bypasses this guard, a write with no visible content fails closed. No commit-time gate. A write signal is scoped to its own clause of the command line, so a writer or redirect elsewhere -- or stderr merely suppressed -- cannot condemn a plain read of .mcp.json. Matching and path checks are otherwise exact-string and substring-coarse. No pragma for .mcp.json.
+
+```
+mcp_config(.mcp.json): server(name,source=cmd+args|url) must(match: allowlist(this_guard_source)); block(unlisted|source_mismatch); allow(exact_match)
+allowlist: lives in implementations/verify-mcp-allowlist.sh; edit requires 'chock: approved-config-change'; scope: claude_code only, tool-time(Bash) only
+```
+
+This policy ships a PreToolUse hook in this plugin's hooks.json, best-effort in Devin: fail-open by the vendor's own design, subject to the fail conditions stated in the plugin description. Repo-wide git-hook and CI coverage still needs `chock sync`. See https://github.com/open-coder-ai/chock

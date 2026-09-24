@@ -1,0 +1,136 @@
+{
+  "name": "chock-devin",
+  "description": "Chock policies packaged as installable plugins. Generated from the chock-catalog; each plugin states whether it is best-effort in this client or advisory.",
+  "optionalPlugins": [
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/agent-discipline"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/block-curl-pipe-sh"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/block-destructive-commands"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/block-invisible-unicode"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/block-no-verify"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/block-unapproved-egress"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/block-wildcard-agent-permissions"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/chock-mise"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/code-safety"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/context-hygiene"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/firecrawl-fallback-only"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/git-safety"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/injection-defense"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/java-security"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/memory-discipline"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/no-a11y-regression"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/pin-github-actions"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/protect-agent-config"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/protect-ci-workflows"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/protect-commit-privacy"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/protect-main-branch"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/rtk-dangerous-actions-blocker"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/scan-secrets"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/token-efficiency"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/verify-dependency-exists"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/verify-mcp-allowlist"
+    }
+  ]
+}
