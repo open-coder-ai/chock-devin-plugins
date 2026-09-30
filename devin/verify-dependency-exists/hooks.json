@@ -1,0 +1,13 @@
+{
+  "Stop": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "git -c \"alias.chock-sh=!sh\" chock-sh \"$DEVIN_PLUGIN_ROOT/scripts/launch.sh\" \"$DEVIN_PLUGIN_ROOT/scripts/devin.py\" --gate \"$DEVIN_PLUGIN_ROOT/scripts/gate.json\"",
+          "timeout": 30
+        }
+      ]
+    }
+  ]
+}

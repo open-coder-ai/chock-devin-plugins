@@ -30,7 +30,17 @@
     {
       "source": "git-subdir",
       "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/block-test-skips"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
       "path": "devin/block-unapproved-egress"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/block-unguarded-agent-spawn"
     },
     {
       "source": "git-subdir",
@@ -65,12 +75,22 @@
     {
       "source": "git-subdir",
       "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/guard-memory-writes"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
       "path": "devin/injection-defense"
     },
     {
       "source": "git-subdir",
       "url": "https://github.com/open-coder-ai/chock-devin-plugins",
       "path": "devin/java-security"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/limit-diff-size"
     },
     {
       "source": "git-subdir",
@@ -106,6 +126,11 @@
       "source": "git-subdir",
       "url": "https://github.com/open-coder-ai/chock-devin-plugins",
       "path": "devin/protect-main-branch"
+    },
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/open-coder-ai/chock-devin-plugins",
+      "path": "devin/protect-test-integrity"
     },
     {
       "source": "git-subdir",
