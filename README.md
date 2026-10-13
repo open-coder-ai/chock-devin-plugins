@@ -4,7 +4,8 @@
 
 <h1 align="center">chock-devin-plugins</h1>
 
-<p align="center"><strong>Chock policies as Devin plugins — a real hook that can deny a command, best-effort and fail-open by the vendor's own design.</strong></p>
+<p align="center"><strong>A best-effort kill switch for your Devin agent's wrong moves.</strong></p>
+<p align="center">Chock policies as Devin plugins — a real hook that can deny a command, best-effort and fail-open by the vendor's own design.</p>
 
 <p align="center">
 
