@@ -31,7 +31,11 @@ documentation (docs.devin.ai, read 2026-09-21), not from a witnessed install.
 **Local sessions only.** Plugin hooks are registered in Devin CLI and Devin Desktop sessions.
 They are not registered in Devin's cloud sessions — a guard installed from here has no effect
 there. A hook's exit code decides the outcome: `2` blocks the tool call, `0` lets it continue,
-and any other exit is logged but does not block.
+and any other exit is logged but does not block. The shipped hook is wired as `PreToolUse` in
+each plugin's `hooks.json`; when it denies, it prints a JSON decision on stdout,
+`{"decision": "block", "reason": "..."}`, and exits 0, and it exits 2 only when the hook cannot run or
+itself faults. Whether Devin honours that JSON decision has not been witnessed, because no
+install has been recorded (see above).
 
 ## Install
 
