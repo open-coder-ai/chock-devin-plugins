@@ -40,7 +40,7 @@ install has been recorded (see above).
 ## Two ways to get these plugins
 
 **This repository: no chock on the machine.** Each policy is its own plugin, republished with
-every chock release. You need Python 3.11+ and git, and nothing else.
+every chock release. You need Python 3.11+, git and a bash (Git for Windows includes one).
 
 ```
 devin plugins install open-coder-ai/chock-devin-plugins
@@ -62,7 +62,7 @@ from the selection, and needs `pip install chock`:
 
 ```
 pip install chock
-chock install --selection '<code>' --client devin --apply
+chock install --selection <code> --client devin --apply
 ```
 
 **Use one route for a given policy, never both.** Every copy of a plugin runs its own hook, so
