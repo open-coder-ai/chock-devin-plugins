@@ -37,32 +37,47 @@ each plugin's `hooks.json`; when it denies, it prints a JSON decision on stdout,
 itself faults. Whether Devin honours that JSON decision has not been witnessed, because no
 install has been recorded (see above).
 
-## Moved to the chock.sh builder
+## Two ways to get these plugins
 
-These plugins now come from the chock.sh builder: **https://chock.sh/coding/builder/**. You pick
-the policies, and `chock install` generates one plugin on your machine; nothing is downloaded
-from this repository. This repository stops publishing on the chock.sh launch day and is
-archived 30 days later.
+**This repository: no chock on the machine.** Each policy is its own plugin, republished with
+every chock release. You need Python 3.11+ and git, and nothing else.
 
-### Moving off a plugin installed from this repository
+```
+devin plugins install open-coder-ai/chock-devin-plugins
+```
 
-1. Remove what you installed from here, so the same guard does not run twice. List it with
-   `devin plugins list`, then remove the root meta-plugin and any single policy:
+That installs the root meta-plugin, which offers every policy below as an optional plugin.
+To install a single policy instead:
 
-   ```
-   devin plugins remove chock-devin
-   devin plugins remove <policy-id>
-   ```
+```
+devin plugins install open-coder-ai/chock-devin-plugins#devin/<policy-id>
+```
 
-   This repository is not a marketplace, so there is no marketplace to remove.
-2. Install the CLI: `pip install chock`.
-3. Open the builder, pick your policies, and run the command it prints:
+Devin has no marketplace index file of its own, so this repository publishes as a plain git
+subdirectory layout rather than a marketplace manifest — the URL above is the whole address.
 
-   ```
-   chock install --selection '<code>' --client devin --apply
-   ```
+**The builder: one plugin, needs chock.** Pick the policies you want at
+**https://chock.sh/coding/builder/**. `chock install` generates one plugin on your machine
+from the selection, and needs `pip install chock`:
 
-### One policy at a time
+```
+pip install chock
+chock install --selection '<code>' --client devin --apply
+```
+
+**Use one route for a given policy, never both.** Every copy of a plugin runs its own hook, so
+a policy installed from both places runs twice. To switch a policy from one route to the other,
+remove it from the first route before installing it from the second. List what you have with
+`devin plugins list`, then remove the root meta-plugin and any single policy:
+
+```
+devin plugins remove chock-devin
+devin plugins remove <policy-id>
+```
+
+This repository is not a marketplace, so there is no marketplace to remove.
+
+### Builder links, one policy at a time
 
 Each link opens the builder for Devin with that one policy preselected. Every link pins the
 chock-catalog commit `e885f918a335e20dfddb4fad0331d4d5b4c5eb43`, so each row names the policy
