@@ -1,0 +1,6 @@
+{
+  "name": "scan-secret-files",
+  "version": "0.1.1",
+  "description": "Friction, not a security boundary: flags files that are secrets by name or content -- private keys and key stores, Google service-account/OAuth JSON, kubeconfig users, AWS, npm, PyPI, netrc, git, pgpass, docker, Composer, NuGet, Maven credentials, tfstate/tfvars, non-template .env, framework secret files, browser stores. Blocks; encrypted keys, notebook outputs and test, fixture, example, doc, lock and eval paths ask. Misses: renamed binary stores other than PKCS#12/JKS/DER, unlisted secret names, values split or encoded. [Session-enforced at the turn's end by a Stop hook; needs git and a Python 3.11+. This client records no file-writing tool vocabulary, so the write itself is not judged: what the turn actually left on disk is re-read, and a construct a rule denies is refused then, however it was written. With no working Python the hook exits 2; without git, fail-open clients allow silently. A gate that cannot reach a decision refuses rather than allowing one it never judged. Enforcement at every commit and in CI still needs chock installed in the repo. In the vendor's own words, plugin hooks are best effort and fail open, documented for local Devin sessions only.]",
+  "skills": "skills"
+}

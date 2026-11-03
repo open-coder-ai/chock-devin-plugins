@@ -1,0 +1,6 @@
+{
+  "name": "compromised-package-ioc",
+  "version": "0.1.1",
+  "description": "Blocks adding a known-malicious package version (npm, PyPI, crates, Go, RubyGems, Packagist manifests and lockfiles), a re-pointed action ref, or an IOC file name, from a dated, sourced list (data/ioc.json, CI fails 120 days after as_of). Runs: commit, agent write, turn's end; only additions judged. Exact versions only: a range is not resolved. A snapshot, not a feed; friction, not a boundary. Adopt under rollout observe. [Session-enforced at the turn's end by a Stop hook; needs git and a Python 3.11+. This client records no file-writing tool vocabulary, so the write itself is not judged: what the turn actually left on disk is re-read, and a construct a rule denies is refused then, however it was written. With no working Python the hook exits 2; without git, fail-open clients allow silently. A gate that cannot reach a decision refuses rather than allowing one it never judged. Enforcement at every commit and in CI still needs chock installed in the repo. In the vendor's own words, plugin hooks are best effort and fail open, documented for local Devin sessions only.]",
+  "skills": "skills"
+}
