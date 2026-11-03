@@ -1,0 +1,6 @@
+{
+  "name": "opaque-blob-guard",
+  "version": "0.0.5",
+  "description": "Warns (observe rollout; never refuses yet) when a change adds or edits, in tests/, fixtures/, testdata/, spec/, m4/, vendor/, gradle/wrapper/: a file whose first bytes are an archive, executable, wasm or database signature (any extension), a random-looking non-media file over 100 KB, or a symlink out of the repo; m4/configure/Makefile text that decodes and evaluates; a gradle wrapper jar changed with no new distributionSha256Sum. Misses text-encoded or prefixed payloads, other folders. [Session-enforced at the turn's end by a Stop hook; needs git and a Python 3.11+. This client records no file-writing tool vocabulary, so the write itself is not judged: what the turn actually left on disk is re-read, and a construct a rule denies is refused then, however it was written. With no working Python the hook exits 2; without git, fail-open clients allow silently. A gate that cannot reach a decision refuses rather than allowing one it never judged. Enforcement at every commit and in CI still needs chock installed in the repo. In the vendor's own words, plugin hooks are best effort and fail open, documented for local Devin sessions only.]",
+  "skills": "skills"
+}
