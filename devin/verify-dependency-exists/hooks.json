@@ -4,7 +4,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "git -c 'alias.chock-sh=!set -f; IFS=; test -f $1 || { echo chock: the plugin launcher is missing, so this call cannot be checked. Refusing. >&2; exit 2; }; sh' chock-sh \"$DEVIN_PLUGIN_ROOT/scripts/launch.sh\" \"$DEVIN_PLUGIN_ROOT/scripts/devin.py\" --gate \"$DEVIN_PLUGIN_ROOT/scripts/gate.json\" --stop",
+          "command": "git -c 'alias.chock-sh=!set -f; IFS=; test -f $1 || { echo chock: the plugin launcher is missing, so this call cannot be checked. Refusing. >&2; exit 2; }; sh' chock-sh \"$DEVIN_PLUGIN_ROOT/scripts/launch.sh\" \"$DEVIN_PLUGIN_ROOT/scripts/devin.py\" --multi \"$DEVIN_PLUGIN_ROOT/scripts/chock_index/Stop-185f9750.json\" --index-sha256 f29c2e8578cf5f3ef2b0f8348bd257ce7674eec836e1c00c61888c342ba8572b --root \"$DEVIN_PLUGIN_ROOT\"",
           "timeout": 45
         }
       ]

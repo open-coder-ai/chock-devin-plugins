@@ -4,16 +4,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "git -c 'alias.chock-sh=!set -f; IFS=; test -f $1 || { echo chock: the plugin launcher is missing, so this call cannot be checked. Refusing. >&2; exit 2; }; sh' chock-sh \"$DEVIN_PLUGIN_ROOT/scripts/launch.sh\" \"$DEVIN_PLUGIN_ROOT/scripts/devin.py\" --guard \"$DEVIN_PLUGIN_ROOT/scripts/protect-agent-config.py\"",
-          "timeout": 45
-        }
-      ]
-    },
-    {
-      "hooks": [
-        {
-          "type": "command",
-          "command": "git -c 'alias.chock-sh=!set -f; IFS=; test -f $1 || { echo chock: the plugin launcher is missing, so this call cannot be checked. Refusing. >&2; exit 2; }; sh' chock-sh \"$DEVIN_PLUGIN_ROOT/scripts/launch.sh\" \"$DEVIN_PLUGIN_ROOT/scripts/devin.py\" --stop-check",
+          "command": "git -c 'alias.chock-sh=!set -f; IFS=; test -f $1 || { echo chock: the plugin launcher is missing, so this call cannot be checked. Refusing. >&2; exit 2; }; sh' chock-sh \"$DEVIN_PLUGIN_ROOT/scripts/launch.sh\" \"$DEVIN_PLUGIN_ROOT/scripts/devin.py\" --multi \"$DEVIN_PLUGIN_ROOT/scripts/chock_index/PreToolUse-185f9750.json\" --index-sha256 5783274f5f3dcd3f8ddd676ea8c9dc6908449b19923735b5e5b33e97e69b6059 --root \"$DEVIN_PLUGIN_ROOT\" --stop-check",
           "timeout": 45
         }
       ]
@@ -24,7 +15,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "git -c 'alias.chock-sh=!set -f; IFS=; test -f $1 || { echo chock: the plugin launcher is missing, so this call cannot be checked. Refusing. >&2; exit 2; }; sh' chock-sh \"$DEVIN_PLUGIN_ROOT/scripts/launch.sh\" \"$DEVIN_PLUGIN_ROOT/scripts/devin.py\" --gate \"$DEVIN_PLUGIN_ROOT/scripts/gate.json\" --stop",
+          "command": "git -c 'alias.chock-sh=!set -f; IFS=; test -f $1 || { echo chock: the plugin launcher is missing, so this call cannot be checked. Refusing. >&2; exit 2; }; sh' chock-sh \"$DEVIN_PLUGIN_ROOT/scripts/launch.sh\" \"$DEVIN_PLUGIN_ROOT/scripts/devin.py\" --multi \"$DEVIN_PLUGIN_ROOT/scripts/chock_index/Stop-185f9750.json\" --index-sha256 8d41208b6f85c071a1a4d0cbae80382b74298a8e408db0bfae9e46e70f706cc0 --root \"$DEVIN_PLUGIN_ROOT\"",
           "timeout": 45
         }
       ]
